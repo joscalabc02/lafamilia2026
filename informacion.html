@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	 <link rel="stylesheet" href="style.css">
+	  <link rel="stylesheet" href="slider.css">
+	<title>Informacion</title>
+    <style>
+/* NAV */
+.nav {
+    background: #2c3e50;
+    padding: 10px;
+}
+
+/* MENÚ */
+.menu {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li {
+    margin: 5px;
+}
+
+.menu li a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+}
+
+/* BOTÓN */
+.btn-menu {
+    display: none;
+    font-size: 25px;
+    background: none;
+    border: none;
+    color: white;
+}
+
+/* CELULAR */
+@media (max-width: 768px) {
+
+    .btn-menu {
+        display: block;
+    }
+
+    .menu {
+        display: none;
+        flex-direction: column;
+        background: #34495e;
+        width: 100%;
+        text-align: center;
+    }
+
+    .menu.active {
+        display: flex;
+    }
+}
+</style>
+</head>
+<body>
+ <header>
+        
+        <nav class="nav">
+    <button class="btn-menu" id="btn-menu">☰</button>
+
+    <ul class="menu" id="menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+        
+        <li><a href="Informacion.html">Informacion Empresarial</a></li>
+        <li><a href="producto.html">Realiza tu Pedido de Arroz Aquí</a></li>
+        
+    </ul>
+</nav>
+    </header>
+    
+    <<section class="informacion">
+
+
+
+<section class="informacion">
+
+<h2>Información Empresarial</h2>
+
+<div class="info-contenedor">
+
+<div class="info-texto">
+
+<p>
+<strong>DISTRIBUIDORA GRANOS PREMIUM LA FAMILIA.EC</strong> es una empresa dedicada a la
+venta y distribución de arroz y diferentes tipos de granos de alta calidad.
+Nuestro objetivo es ofrecer productos cuidadosamente seleccionados para el
+consumo familiar y para negocios como tiendas, bodegas y restaurantes etc.
+</p><br><br>
+
+<p>
+Trabajamos con responsabilidad, compromiso y dedicación para brindar una
+excelente atención, precios accesibles y abastecimiento constante de
+productos a todos nuestros clientes.
+</p><br><br>
+
+
+<section class="empresa">
+    <h2>Misión</h2>
+    <p>
+        En <strong>DISTRIBUIDORA GRANOS PREMIUM LA FAMILIA</strong> nos dedicamos
+        a comercializar arroz y granos de la más alta calidad, ofreciendo productos
+        frescos, seleccionados y con un excelente servicio al cliente. Trabajamos
+        con responsabilidad, honestidad y compromiso para satisfacer las necesidades
+        de nuestros clientes, contribuyendo al bienestar de las familias ecuatorianas.
+    </p><br><br>
+
+    <h2>Visión</h2>
+    <p>
+        Ser una empresa líder en la distribución de arroz y granos premium en Ecuador,
+        reconocida por la calidad de nuestros productos, la confianza de nuestros
+        clientes y la excelencia en el servicio. Buscamos crecer de manera sostenible,
+        innovando continuamente y fortaleciendo relaciones comerciales duraderas.
+    </p>
+</section>
+
+</div>
+
+</div>
+
+</section>
+</section>
+
+    <footer>
+        <p>&copy; 2027 Negocio. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+document.getElementById("btn-menu").addEventListener("click", function() {
+    document.getElementById("menu").classList.toggle("active");
+});
+</script>
+</body>
+</html>

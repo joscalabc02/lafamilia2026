@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="style.css">
+	 <link rel="stylesheet" href="slider.css">
+	<title>Servicios</title>
+    <style>
+/* NAV */
+.nav {
+    background: #2c3e50;
+    padding: 10px;
+}
+
+/* MENÚ */
+.menu {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li {
+    margin: 5px;
+}
+
+.menu li a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+}
+
+/* BOTÓN */
+.btn-menu {
+    display: none;
+    font-size: 25px;
+    background: none;
+    border: none;
+    color: white;
+}
+
+/* CELULAR */
+@media (max-width: 768px) {
+
+    .btn-menu {
+        display: block;
+    }
+
+    .menu {
+        display: none;
+        flex-direction: column;
+        background: #34495e;
+        width: 100%;
+        text-align: center;
+    }
+
+    .menu.active {
+        display: flex;
+    }
+}
+</style>
+</head>
+<body>
+ <header>
+       
+         <nav class="nav">
+    <button class="btn-menu" id="btn-menu">☰</button>
+
+    <ul class="menu" id="menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+        
+        <li><a href="Informacion.html">Informacion Empresarial</a></li>
+        <li><a href="producto.html">Realiza tu Pedido de Arroz Aquí</a></li>
+        
+    </ul>
+</nav>
+    </header>
+    
+    
+<section class="servicios">
+
+<h2>Nuestros Servicios</h2>
+
+<div class="contenedor-servicios">
+
+<div class="servicio">Venta de arroz al por mayor y menor</div>
+
+<div class="servicio">Venta de granos seleccionados para consumo</div>
+
+<div class="servicio">Distribución de granos a tiendas, bodegas y supermercados</div>
+
+<div class="servicio">Empaque profesional de granos</div>
+
+<div class="servicio">Entrega de pedidos a domicilio</div>
+
+<div class="servicio">Pedidos especiales para negocios, restaurantes y comedores</div>
+
+<div class="servicio">Precios especiales para mayoristas</div>
+
+<div class="servicio">Granos de alta calidad seleccionados</div>
+
+<div class="servicio">Atención rápida y personalizada</div>
+
+<div class="servicio">Abastecimiento constante de productos</div>
+
+<div class="servicio">Pedidos programados para clientes frecuentes</div>
+
+<div class="servicio">Variedad de granos nacionales</div>
+
+</div>
+
+</section>
+    <footer>
+        <p>&copy; 2027 Negocio. Todos los derechos reservados.</p>
+    </footer>
+     <script>
+document.getElementById("btn-menu").addEventListener("click", function() {
+    document.getElementById("menu").classList.toggle("active");
+});
+</script>
+</body>
+</html>

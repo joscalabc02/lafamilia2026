@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+     <link rel="stylesheet" href="slider.css">
+    <title>Producto</title>
+    <style>
+/* NAV */
+.nav {
+    background: #2c3e50;
+    padding: 10px;
+}
+
+/* MENÚ */
+.menu {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li {
+    margin: 5px;
+}
+
+.menu li a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+}
+
+/* BOTÓN */
+.btn-menu {
+    display: none;
+    font-size: 25px;
+    background: none;
+    border: none;
+    color: white;
+}
+
+/* CELULAR */
+@media (max-width: 768px) {
+
+    .btn-menu {
+        display: block;
+    }
+
+    .menu {
+        display: none;
+        flex-direction: column;
+        background: #34495e;
+        width: 100%;
+        text-align: center;
+    }
+
+    .menu.active {
+        display: flex;
+    }
+}
+</style>
+</head>
+<body>
+<header>
+       
+        <nav class="nav">
+    <button class="btn-menu" id="btn-menu">☰</button>
+
+    <ul class="menu" id="menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+         
+        <li><a href="Informacion.html">Informacion Empresarial</a></li>
+        <li><a href="producto.html">Realiza tu Pedido de Arroz Aquí</a></li>
+        
+    </ul>
+</nav>
+    </header>
+   
+<title>Formulario de Pedido</title>
+
+<style>
+
+body{
+    margin:0;
+    background:#f4f4f4;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.contenedor{
+    max-width:1000px;
+    margin:40px auto;
+    display:flex;
+    gap:30px;
+    flex-wrap:wrap;
+}
+
+.producto{
+    flex:1;
+    min-width:320px;
+    background:#fff;
+    border-radius:12px;
+    padding:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+    text-align:center;
+}
+
+.producto img{
+    width:100%;
+    height:300px;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+.producto h2{
+    color:#333;
+    margin:15px 0;
+}
+
+.precio{
+    color:#2e8b57;
+    font-size:28px;
+    font-weight:bold;
+}
+
+.formulario{
+    flex:1;
+    min-width:320px;
+    background:#fff;
+    border-radius:12px;
+    padding:25px;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+.formulario h2{
+    margin-bottom:20px;
+}
+
+.formulario label{
+    display:block;
+    margin-top:15px;
+    margin-bottom:5px;
+    font-weight:bold;
+}
+
+.formulario input,
+.formulario textarea{
+    width:100%;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:16px;
+    box-sizing:border-box;
+}
+
+.formulario textarea{
+    resize:none;
+}
+
+button{
+    width:100%;
+    margin-top:25px;
+    padding:15px;
+    background:#25D366;
+    color:#fff;
+    border:none;
+    border-radius:8px;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#1ebd5a;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="contenedor">
+
+<div class="producto">
+
+<img src="im/oso.jpeg" alt="Arroz Premium">
+
+<h2>Arroz Oso</h2>
+
+<p class="precio">$45.00</p>
+<p>Grano seleccionado de excelente calidad.</p>
+ <p>
+        Ideal para hogares, restaurantes y negocios que buscan un arroz de
+        calidad premium, con sabor auténtico y excelente presentación.
+   
+
+  </p>
+<p>
+✔ Granos seleccionados<br><br>
+✔ Mayor rendimiento al cocinar<br><br>
+✔ Granos sueltos y consistentes<br><br>
+✔ Excelente sabor y textura<br><br>
+✔ Calidad garantizada
+</p>
+ 
+
+
+
+</div>
+
+<div class="formulario">
+
+<h2>Datos del Cliente</h2>
+
+<form onsubmit="enviarWhatsapp(); return false;">
+
+<label>Nombre</label>
+<input type="text" id="nombre" required>
+
+<label>Teléfono</label>
+<input type="text" id="telefono" required>
+
+<label>Dirección</label>
+<input type="text" id="direccion" required>
+
+<label>Cantidad de Sacos</label>
+<input type="number" id="cantidad" min="1" required>
+
+<label>Observaciones</label>
+<textarea id="obs" rows="4"></textarea>
+
+<button type="submit">
+📲 Realizar Pedido por WhatsApp
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+<script>
+
+function enviarWhatsapp(){
+
+    let numero = "593989802622";
+
+    let precio = 45;
+    let cantidad = parseInt(document.getElementById('cantidad').value) || 0;
+    let total = cantidad * precio;
+
+    let mensaje =
+    `*🛒 NUEVO PEDIDO*%0A%0A`+
+    `👤 Cliente: ${document.getElementById('nombre').value}%0A`+
+    `📞 Teléfono: ${document.getElementById('telefono').value}%0A`+
+    `📍 Dirección: ${document.getElementById('direccion').value}%0A%0A`+
+    `🌾 Producto: Arroz Premium Oso%0A`+
+    `📦 Cantidad: ${cantidad} saco(s)%0A`+
+    `💵 Precio por saco: $${precio}%0A`+
+    `💰 Total: $${total}%0A%0A`+
+    `📝 Observaciones: ${document.getElementById('obs').value}`;
+
+    // Abrir WhatsApp
+    window.open(`https://wa.me/${numero}?text=${mensaje}`, "_blank");
+
+    // Limpiar el formulario
+    document.getElementById("formPedido").reset();
+
+}
+</script>
+
+   
+
+
+
+<div class="contenedor">
+
+    <div class="producto">
+
+        <img src="im/zz.jpeg" alt="Arroz Macareño">
+
+        <h2>Arroz Macareño</h2>
+
+         <p class="precio">$48.00</p>
+
+        <p>Grano seleccionado de excelente calidad.</p>
+
+         <p>
+        Su textura, rendimiento y frescura lo convierten en la elección
+        perfecta para quienes buscan un arroz confiable y de gran calidad.
+    </p>
+
+<p>
+✔ 100% Macareño<br><br>
+✔ Granos de calidad<br><br>
+✔ Mayor rendimiento al cocinar<br><br>
+✔ Más sabroso y nutritivo<br><br>
+✔ 100% Natural Procesado Envejecido
+</p>
+
+
+    </div>
+
+    <div class="formulario">
+
+        <h2>Datos del Cliente</h2>
+
+        <form id="formMacareno" onsubmit="enviarWhatsappMacareno(); return false;">
+
+            <label>Nombre</label>
+            <input type="text" id="nombreMac" required>
+
+            <label>Teléfono</label>
+            <input type="text" id="telefonoMac" required>
+
+            <label>Dirección</label>
+            <input type="text" id="direccionMac" required>
+
+            <label>Cantidad de Quintales</label>
+            <input type="number" id="cantidadMac" min="1" required>
+
+            <label>Observaciones</label>
+            <textarea id="obsMac" rows="4"></textarea>
+
+            <button type="submit">
+                📲 Realizar Pedido por WhatsApp
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+<script>
+
+function enviarWhatsappMacareno(){
+
+    let numero = "593989802622";
+    let precio = 48;
+
+    let cantidad = parseInt(document.getElementById("cantidadMac").value) || 0;
+    let total = cantidad * precio;
+
+    let mensaje =
+`🛒 *NUEVO PEDIDO*
+
+👤 Cliente: ${document.getElementById("nombreMac").value}
+📞 Teléfono: ${document.getElementById("telefonoMac").value}
+📍 Dirección: ${document.getElementById("direccionMac").value}
+
+🌾 Producto: Arroz Macareño
+🌾 Cantidad: ${cantidad} quintal(es)
+💵 Precio por quintal: $${precio}
+💰 Total: $${total}
+
+📝 Observaciones:
+${document.getElementById("obsMac").value}`;
+
+    let url = "https://wa.me/" + numero + "?text=" + encodeURIComponent(mensaje);
+
+    window.open(url, "_blank");
+
+    // Limpiar solo este formulario
+    document.getElementById("formMacareno").reset();
+
+    return false;
+}
+
+</script> 
+
+
+<div class="contenedor">
+
+    <div class="producto">
+
+        <img src="im/s.jpeg" alt="Arroz Flor">
+
+        <h2>Arroz Flor</h2>
+
+         <p class="precio">$44.50</p>
+
+        <p>Arroz Flor Superior elaborado con granos cuidadosamente seleccionados para ofrecer una excelente calidad, sabor y rendimiento en cada preparación.</p>
+
+<p>
+Su proceso de selección y envejecido garantiza una cocción uniforme, granos sueltos y una textura perfecta, ideal para el hogar, restaurantes y negocios.
+</p>
+
+<p>
+✔ Granos seleccionados de primera calidad<br>
+✔ Excelente rendimiento al cocinar<br>
+✔ Granos enteros y de textura suave<br>
+✔ Sabor natural y delicioso<br>
+✔ Proceso de arroz envejecido<br>
+✔ 100% Natural<br>
+✔ Ideal para todo tipo de comidas
+</p>
+
+    </div>
+
+    <div class="formulario">
+
+        <h2>Datos del Cliente</h2>
+
+        <form id="formFlor" onsubmit="enviarWhatsappFlor(); return false;">
+
+            <label>Nombre</label>
+            <input type="text" id="nombreFlor" required>
+
+            <label>Teléfono</label>
+            <input type="text" id="telefonoFlor" required>
+
+            <label>Dirección</label>
+            <input type="text" id="direccionFlor" required>
+
+            <label>Cantidad de Quintales</label>
+            <input type="number" id="cantidadFlor" min="1" required>
+
+            <label>Observaciones</label>
+            <textarea id="obsFlor" rows="4"></textarea>
+
+            <button type="submit">
+                📲 Realizar Pedido por WhatsApp
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+<script>
+
+function enviarWhatsappFlor(){
+
+    let numero = "593989802622";
+    let precio = 44.50;
+
+    let cantidad = parseInt(document.getElementById("cantidadFlor").value) || 0;
+    let total = cantidad * precio;
+
+    let mensaje =
+`🛒 *NUEVO PEDIDO*
+
+👤 Cliente: ${document.getElementById("nombreFlor").value}
+📞 Teléfono: ${document.getElementById("telefonoFlor").value}
+📍 Dirección: ${document.getElementById("direccionFlor").value}
+
+🌾 Producto: Arroz Flor
+🌾 Cantidad: ${cantidad} quintal(es)
+💵 Precio por quintal: $${precio}
+💰 Total: $${total}
+
+📝 Observaciones:
+${document.getElementById("obsFlor").value}`;
+
+    let url = "https://wa.me/" + numero + "?text=" + encodeURIComponent(mensaje);
+
+    window.open(url, "_blank");
+
+    // Limpiar solo este formulario
+    document.getElementById("formFlor").reset();
+
+    return false;
+}
+
+</script> 
+
+
+<div class="contenedor">
+
+    <div class="producto">
+
+        <img src="im/q.jpeg" alt="Arroz Conejo">
+
+        <h2>Arroz Conejo</h2>
+
+         <p class="precio">$47.50</p>
+
+       <p>
+Arroz Conejo Envejecido es un producto de alta calidad, elaborado con granos cuidadosamente seleccionados y sometido a un proceso de envejecido que garantiza un mejor rendimiento, una cocción uniforme y un sabor excepcional.
+</p>
+
+<p>
+Su frescura, pureza y excelente presentación lo convierten en la opción ideal para hogares, restaurantes y negocios que buscan un arroz confiable y de primera calidad en cada preparación.
+</p>
+
+<p>
+✔ Arroz envejecido de excelente calidad<br>
+✔ Granos largos y cuidadosamente seleccionados<br>
+✔ Mayor rendimiento al cocinar<br>
+✔ Granos sueltos y consistentes<br>
+✔ Textura suave y agradable<br>
+✔ Sabor fresco y natural<br>
+✔ 100% Natural, libre de impurezas<br>
+✔ Ideal para todo tipo de recetas y comidas
+</p>
+    </div>
+
+    <div class="formulario">
+
+        <h2>Datos del Cliente</h2>
+
+        <form id="formConejo" onsubmit="enviarWhatsappConejo(); return false;">
+
+            <label>Nombre</label>
+            <input type="text" id="nombreConejo" required>
+
+            <label>Teléfono</label>
+            <input type="text" id="telefonoConejo" required>
+
+            <label>Dirección</label>
+            <input type="text" id="direccionConejo" required>
+
+            <label>Cantidad de Quintales</label>
+            <input type="number" id="cantidadConejo" min="1" required>
+
+            <label>Observaciones</label>
+            <textarea id="obsConejo" rows="4"></textarea>
+
+            <button type="submit">
+                📲 Realizar Pedido por WhatsApp
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+<script>
+
+function enviarWhatsappConejo(){
+
+    let numero = "593989802622";
+    let precio = 47.50;
+
+    let cantidad = parseInt(document.getElementById("cantidadConejo").value) || 0;
+    let total = cantidad * precio;
+
+    let mensaje =
+`🛒 *NUEVO PEDIDO*
+
+👤 Cliente: ${document.getElementById("nombreConejo").value}
+📞 Teléfono: ${document.getElementById("telefonoConejo").value}
+📍 Dirección: ${document.getElementById("direccionConejo").value}
+
+🌾 Producto: Arroz Conejo
+🌾 Cantidad: ${cantidad} quintal(es)
+💵 Precio por quintal: $${precio}
+💰 Total: $${total}
+
+📝 Observaciones:
+${document.getElementById("obsConejo").value}`;
+
+    let url = "https://wa.me/" + numero + "?text=" + encodeURIComponent(mensaje);
+
+    window.open(url, "_blank");
+
+    // Limpiar solo este formulario
+    document.getElementById("formConejo").reset();
+
+    return false;
+}
+
+</script> 
+
+
+</body>
+ <footer>
+        <p>&copy; 2027 Negocio. Todos los derechos reservados.</p>
+    </footer>
+     <script>
+document.getElementById("btn-menu").addEventListener("click", function() {
+    document.getElementById("menu").classList.toggle("active");
+});
+</script>
+</html>
