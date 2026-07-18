@@ -54,6 +54,14 @@ background:rgba(0,0,0,0.5);
 padding:20px;
 border-radius:10px;
 }
+.texto h2{
+font-size:40px;
+margin:0;
+}
+
+.texto p{
+font-size:20px;
+}
 
 
 @keyframes slider{
