@@ -181,6 +181,293 @@ button:hover{
 </head>
 
 <body>
+```html
+<!-- ================================
+     ARROZ OSO PREMIUM
+================================ -->
+
+<div class="contenedor">
+
+    <!-- PRODUCTO -->
+    <div class="producto">
+
+        <img src="im/oso.jpeg" alt="Arroz Oso Premium">
+
+        <h2>Arroz Oso Premium</h2>
+
+        <!-- Características -->
+        <ul class="features-list">
+
+            <li>
+                <span class="icon-check">✓</span>
+                <div>
+                    <strong>Grano Seleccionado Premium:</strong>
+                    Granos cuidadosamente seleccionados para ofrecer una excelente calidad en cada preparación.
+                </div>
+            </li>
+
+            <li>
+                <span class="icon-check">✓</span>
+                <div>
+                    <strong>Mayor Rendimiento:</strong>
+                    Excelente comportamiento durante la cocción, permitiendo obtener un arroz suelto y consistente.
+                </div>
+            </li>
+
+            <li>
+                <span class="icon-check">✓</span>
+                <div>
+                    <strong>Excelente Sabor y Textura:</strong>
+                    Ideal para hogares, restaurantes, hoteles, comedores y negocios gastronómicos.
+                </div>
+            </li>
+
+            <li>
+                <span class="icon-check">✓</span>
+                <div>
+                    <strong>Calidad Garantizada:</strong>
+                    Producto seleccionado para clientes que buscan calidad, buen rendimiento y excelente presentación.
+                </div>
+            </li>
+
+        </ul>
+
+        <!-- Barra lateral -->
+        <aside class="sidebar">
+
+            <div class="sidebar-box">
+                <h4>Segmento Objetivo</h4>
+                <p>
+                    Ideal para distribuidores mayoristas, tiendas de abarrotes,
+                    hogares, restaurantes, hoteles y negocios de alimentación.
+                </p>
+            </div>
+
+            <div class="sidebar-box">
+                <h4>Calidad Premium</h4>
+                <p>
+                    Una excelente opción para quienes buscan un arroz de buena
+                    calidad, con sabor auténtico, textura agradable y buen rendimiento.
+                </p>
+            </div>
+
+        </aside>
+
+    </div>
+
+
+    <!-- FORMULARIO -->
+    <div class="formulario">
+
+        <h2>Datos del Cliente</h2>
+
+        <form id="formOso"
+              onsubmit="enviarWhatsappOso(); return false;">
+
+            <label>Nombre</label>
+
+            <input
+                type="text"
+                id="nombreOso"
+                placeholder="Ingrese su nombre"
+                required
+            >
+
+
+            <label>Teléfono</label>
+
+            <input
+                type="tel"
+                id="telefonoOso"
+                placeholder="Ej: 0999999999"
+                required
+            >
+
+
+            <label>Dirección</label>
+
+            <input
+                type="text"
+                id="direccionOso"
+                placeholder="Ingrese su dirección"
+                required
+            >
+
+
+            <!-- PRESENTACIÓN -->
+            <label>Presentación</label>
+
+            <select id="presentacionOso" required>
+
+                <option value="quintal">
+                    Quintal 100 lb - $43
+                </option>
+
+                <option value="medio_quintal">
+                    Medio quintal 50 lb - $22
+                </option>
+
+                <option value="arroba">
+                    Arroba 25 lb - $12
+                </option>
+
+            </select>
+
+
+            <!-- CANTIDAD -->
+            <label>Cantidad</label>
+
+            <input
+                type="number"
+                id="cantidadOso"
+                min="1"
+                value="1"
+                required
+            >
+
+
+            <!-- OBSERVACIONES -->
+            <label>Observaciones</label>
+
+            <textarea
+                id="obsOso"
+                rows="4"
+                placeholder="Ej: entregar en la mañana..."
+            ></textarea>
+
+
+            <!-- BOTÓN -->
+            <button type="submit">
+                📲 Realizar Pedido por WhatsApp
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- ================================
+     JAVASCRIPT
+================================ -->
+
+<script>
+
+function enviarWhatsappOso() {
+
+    // Número de WhatsApp
+    let numero = "593982727488";
+
+
+    // Obtener presentación
+    let presentacion =
+        document.getElementById("presentacionOso").value;
+
+
+    // Obtener cantidad
+    let cantidad =
+        parseInt(
+            document.getElementById("cantidadOso").value
+        ) || 0;
+
+
+    // Tabla de precios
+    let precios = {
+
+        "quintal": {
+            precio: 43,
+            etiqueta: "Quintal(es) [100 lb]"
+        },
+
+        "medio_quintal": {
+            precio: 22,
+            etiqueta: "Medio Quintal(es) [50 lb]"
+        },
+
+        "arroba": {
+            precio: 12,
+            etiqueta: "Arroba(s) [25 lb]"
+        }
+
+    };
+
+
+    // Obtener información seleccionada
+    let seleccion =
+        precios[presentacion] || precios["quintal"];
+
+
+    let precioUnitario =
+        seleccion.precio;
+
+
+    let etiquetaPresentacion =
+        seleccion.etiqueta;
+
+
+    // Calcular total
+    let total =
+        cantidad * precioUnitario;
+
+
+    // Datos del cliente
+    let nombre =
+        document.getElementById("nombreOso").value.trim();
+
+
+    let telefono =
+        document.getElementById("telefonoOso").value.trim();
+
+
+    let direccion =
+        document.getElementById("direccionOso").value.trim();
+
+
+    let observaciones =
+        document.getElementById("obsOso").value.trim();
+
+
+    // Mensaje de WhatsApp
+    let mensaje =
+`🛒 *NUEVO PEDIDO - ARROZ OSO*
+
+👤 *Cliente:* ${nombre}
+📞 *Teléfono:* ${telefono}
+📍 *Dirección:* ${direccion}
+
+🌾 *Producto:* Arroz Oso Premium
+📦 *Presentación:* ${etiquetaPresentacion}
+🔢 *Cantidad:* ${cantidad}
+
+💵 *Precio unitario:* $${precioUnitario.toFixed(2)}
+💰 *Total a pagar:* $${total.toFixed(2)}
+
+📝 *Observaciones:*
+${observaciones || "Sin observaciones"}
+
+¡Gracias por su pedido! 🙌`;
+
+
+    // Crear URL de WhatsApp
+    let url =
+        "https://wa.me/" +
+        numero +
+        "?text=" +
+        encodeURIComponent(mensaje);
+
+
+    // Abrir WhatsApp
+    window.open(url, "_blank");
+
+
+    // Limpiar formulario
+    document.getElementById("formOso").reset();
+
+}
+
+</script>
+```
 
 <div class="contenedor">
 
