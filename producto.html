@@ -703,9 +703,7 @@ document.getElementById("btn-menu").addEventListener("click", function() {
     document.getElementById("menu").classList.toggle("active");
 });
 </script>
-
-
-    <!-- CÓDIGO HTML Y JAVASCRIPT CORREGIDO Y ADAPTADO -->
+<!-- CÓDIGO ACTUALIZADO CON MEDIO QUINTAL (50 LB) -->
 
 <div class="contenedor">
 
@@ -715,7 +713,7 @@ document.getElementById("btn-menu").addEventListener("click", function() {
 
         <h2>Arroz Macareño Premium</h2>
 
-        <p class="precio">$55 (Quintal 100lb) | $14 (Arroba 25lb)</p>
+        <p class="precio">$55 (Quintal 100lb) | $28 (Medio Quintal 50lb) | $14 (Arroba 25lb)</p>
 
         <!-- Características Técnicas y Comerciales -->
         <ul class="features-list">
@@ -780,7 +778,7 @@ document.getElementById("btn-menu").addEventListener("click", function() {
             <label>Presentación</label>
             <select id="presentacionMacareno" required>
                 <option value="quintal">Quintal 100 lb - $55</option>
-                <option value="medio quintal">Medio quintal 50 lb - $28</option>
+                <option value="medio_quintal">Medio quintal 50 lb - $28</option>
                 <option value="arroba">Arroba 25 lb - $14</option>
             </select>
 
@@ -804,16 +802,19 @@ document.getElementById("btn-menu").addEventListener("click", function() {
 function enviarWhatsappMacareno(){
 
     let numero = "593982727488";
-    
-    // Precios por unidad
-    let precioQuintal = 55;
-    let precioArroba = 14;
-
     let presentacion = document.getElementById("presentacionMacareno").value;
     let cantidad = parseInt(document.getElementById("cantidadMacareno").value) || 0;
-    
-    let precioUnitario = (presentacion === "quintal") ? precioQuintal : precioArroba;
-    let etiquetaPresentacion = (presentacion === "quintal") ? "Quintal(es) [100 lb]" : "Arroba(s) [25 lb]";
+
+    // Tabla de Precios y Etiquetas
+    let precios = {
+        "quintal": { precio: 55, etiqueta: "Quintal(es) [100 lb]" },
+        "medio_quintal": { precio: 28, etiqueta: "Medio Quintal(es) [50 lb]" },
+        "arroba": { precio: 14, etiqueta: "Arroba(s) [25 lb]" }
+    };
+
+    let seleccion = precios[presentacion] || precios["quintal"];
+    let precioUnitario = seleccion.precio;
+    let etiquetaPresentacion = seleccion.etiqueta;
     let total = cantidad * precioUnitario;
 
     let mensaje =
