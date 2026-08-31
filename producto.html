@@ -431,91 +431,150 @@ ${observaciones || "Sin observaciones"}
 
 </script>
    
-
-
 ```html
-    
-<!-- CÓDIGO ACTUALIZADO-->
+<!-- ==========================================
+     ARROZ MACAREÑO LA CARMITA
+========================================== -->
 
 <div class="contenedor">
 
+    <!-- PRODUCTO -->
     <div class="producto">
 
         <img src="im/zz.jpeg" alt="Arroz Macareño La Carmita">
 
         <h2>Arroz Macareño La Carmita</h2>
-        <!-- Características Técnicas y Comerciales -->
+
+        <p class="precio">$53.00</p>
+
+        <p>
+            Grano seleccionado de excelente calidad.
+        </p>
+
+        <p>
+            Su textura, rendimiento y frescura lo convierten en la elección
+            perfecta para quienes buscan un arroz confiable y de gran calidad.
+        </p>
+
         <ul class="features-list">
-          <li>
-            <span class="icon-check">✓</span>
-            <div>
-              <strong>Grano Seleccionado Premium:</strong> Proceso de pilado y limpia de alta precisión que minimiza el porcentaje de grano partido, garantizando una cocción uniforme.
-            </div>
-          </li>
-          <li>
-            <span class="icon-check">✓</span>
-            <div>
-              <strong>Textura Graneada e Insuperable:</strong> Excelente absorción de humedad sin perder consistencia, ideal para platos principales y acompañamientos profesionales.
-            </div>
-          </li>
-          <li>
-            <span class="icon-check">✓</span>
-            <div>
-              <strong>Optimización de Margen (HORECA):</strong> Diseñado para restaurantes, comedores e industria de alimentos que requieren máximo rinde por porción servida.
-            </div>
-          </li>
-          <li>
-            <span class="icon-check">✓</span>
-            <div>
-              <strong>Empaque de Alta Durabilidad:</strong> Saco tejido de polipropileno de alta resistencia que protege el producto contra la humedad y el desgaste durante el transporte y almacenamiento.
-            </div>
-          </li>
+
+            <li>✔ 100% Macareño</li>
+
+            <li>✔ Granos de calidad</li>
+
+            <li>✔ Mayor rendimiento al cocinar</li>
+
+            <li>✔ Más sabroso y nutritivo</li>
+
+            <li>✔ 100% Natural Procesado Envejecido</li>
+
         </ul>
 
-      <!-- Columna Lateral / Argumentos de Venta -->
-      <aside class="sidebar">
-        
-        <div class="sidebar-box">
-          <h4>Segmento Objetivo</h4>
-          <p>Ideal para distribuidores mayoristas, tiendas de abarrotes, hoteles, restaurantes y catering institucional.</p>
-        </div>
-
-        <div class="sidebar-box">
-          <h4>Garantía de Frescura</h4>
-          <p>Conserva el sabor neutro y aroma original del arroz recién cosechado, permitiendo adaptarse a cualquier especialidad gastronómica.</p>
-        </div>
-
-      </aside>
-
     </div>
+
+
+    <!-- ==========================================
+         FORMULARIO
+    =========================================== -->
 
     <div class="formulario">
 
         <h2>Datos del Cliente</h2>
 
-        <form id="formMacareno" onsubmit="enviarWhatsappMacareno(); return false;">
+        <form id="formMacarenoCarmita"
+              onsubmit="enviarWhatsappMacarenoCarmita(event); return false;">
 
-            <label>Nombre</label>
-            <input type="text" id="nombreMacareno" required>
+            <label for="nombreMacarenoCarmita">
+                Nombre
+            </label>
 
-            <label>Teléfono</label>
-            <input type="text" id="telefonoMacareno" required>
+            <input
+                type="text"
+                id="nombreMacarenoCarmita"
+                placeholder="Ingrese su nombre"
+                required
+            >
 
-            <label>Dirección</label>
-            <input type="text" id="direccionMacareno" required>
 
-            <label>Presentación</label>
-            <select id="presentacionMacareno" required>
-                <option value="quintal">Quintal 100 lb - $53</option>
-                <option value="medio_quintal">Medio quintal 50 lb - $27</option>
-                <option value="arroba">Arroba 25 lb - $14</option>
+            <label for="telefonoMacarenoCarmita">
+                Teléfono
+            </label>
+
+            <input
+                type="tel"
+                id="telefonoMacarenoCarmita"
+                placeholder="Ej: 0999999999"
+                required
+            >
+
+
+            <label for="direccionMacarenoCarmita">
+                Dirección
+            </label>
+
+            <input
+                type="text"
+                id="direccionMacarenoCarmita"
+                placeholder="Ingrese su dirección"
+                required
+            >
+
+
+            <!-- PRESENTACIÓN -->
+
+            <label for="presentacionMacarenoCarmita">
+                Presentación
+            </label>
+
+            <select
+                id="presentacionMacarenoCarmita"
+                required
+            >
+
+                <option value="quintal">
+                    Quintal 100 lb - $53
+                </option>
+
+                <option value="medio_quintal">
+                    Medio quintal 50 lb - $27
+                </option>
+
+                <option value="arroba">
+                    Arroba 25 lb - $14
+                </option>
+
             </select>
 
-            <label>Cantidad</label>
-            <input type="number" id="cantidadMacareno" min="1" value="1" required>
 
-            <label>Observaciones</label>
-            <textarea id="obsMacareno" rows="4"></textarea>
+            <!-- CANTIDAD -->
+
+            <label for="cantidadMacarenoCarmita">
+                Cantidad
+            </label>
+
+            <input
+                type="number"
+                id="cantidadMacarenoCarmita"
+                min="1"
+                value="1"
+                required
+            >
+
+
+            <!-- OBSERVACIONES -->
+
+            <label for="obsMacarenoCarmita">
+                Observaciones
+            </label>
+
+            <textarea
+                id="obsMacarenoCarmita"
+                rows="4"
+                placeholder="Ej: entregar en la mañana..."
+            ></textarea>
+
+
+            <!-- BOTÓN -->
 
             <button type="submit">
                 📲 Realizar Pedido por WhatsApp
@@ -527,51 +586,188 @@ ${observaciones || "Sin observaciones"}
 
 </div>
 
+
+<!-- ==========================================
+     JAVASCRIPT
+========================================== -->
+
 <script>
-function enviarWhatsappMacareno(){
+
+function enviarWhatsappMacarenoCarmita(event) {
+
+    // Evitar que la página se recargue
+    if (event) {
+        event.preventDefault();
+    }
+
+
+    // ==========================================
+    // NÚMERO DE WHATSAPP
+    // ==========================================
 
     let numero = "593982727488";
-    let presentacion = document.getElementById("presentacionMacareno").value;
-    let cantidad = parseInt(document.getElementById("cantidadMacareno").value) || 0;
 
-    // Tabla de Precios y Etiquetas
+
+    // ==========================================
+    // OBTENER DATOS DEL FORMULARIO
+    // ==========================================
+
+    let nombre =
+        document.getElementById(
+            "nombreMacarenoCarmita"
+        ).value.trim();
+
+
+    let telefono =
+        document.getElementById(
+            "telefonoMacarenoCarmita"
+        ).value.trim();
+
+
+    let direccion =
+        document.getElementById(
+            "direccionMacarenoCarmita"
+        ).value.trim();
+
+
+    let presentacion =
+        document.getElementById(
+            "presentacionMacarenoCarmita"
+        ).value;
+
+
+    let cantidad =
+        parseInt(
+            document.getElementById(
+                "cantidadMacarenoCarmita"
+            ).value
+        ) || 0;
+
+
+    let observaciones =
+        document.getElementById(
+            "obsMacarenoCarmita"
+        ).value.trim();
+
+
+    // ==========================================
+    // PRECIOS
+    // ==========================================
+
     let precios = {
-        "quintal": { precio: 53, etiqueta: "Quintal(es) [100 lb]" },
-        "medio_quintal": { precio: 27, etiqueta: "Medio Quintal(es) [50 lb]" },
-        "arroba": { precio: 14, etiqueta: "Arroba(s) [25 lb]" }
+
+        "quintal": {
+            precio: 53,
+            etiqueta: "Quintal [100 lb]"
+        },
+
+        "medio_quintal": {
+            precio: 27,
+            etiqueta: "Medio quintal [50 lb]"
+        },
+
+        "arroba": {
+            precio: 14,
+            etiqueta: "Arroba [25 lb]"
+        }
+
     };
 
-    let seleccion = precios[presentacion] || precios["quintal"];
-    let precioUnitario = seleccion.precio;
-    let etiquetaPresentacion = seleccion.etiqueta;
-    let total = cantidad * precioUnitario;
+
+    // ==========================================
+    // OBTENER PRECIO
+    // ==========================================
+
+    let seleccion =
+        precios[presentacion];
+
+
+    if (!seleccion) {
+
+        alert("Por favor seleccione una presentación.");
+
+        return false;
+    }
+
+
+    let precioUnitario =
+        seleccion.precio;
+
+
+    let etiquetaPresentacion =
+        seleccion.etiqueta;
+
+
+    // ==========================================
+    // CALCULAR TOTAL
+    // ==========================================
+
+    let total =
+        cantidad * precioUnitario;
+
+
+    // ==========================================
+    // CREAR MENSAJE
+    // ==========================================
 
     let mensaje =
-`🛒 *NUEVO PEDIDO - ARROZ MACAREÑO*
+`🛒 *NUEVO PEDIDO*
 
-👤 Cliente: ${document.getElementById("nombreMacareno").value}
-📞 Teléfono: ${document.getElementById("telefonoMacareno").value}
-📍 Dirección: ${document.getElementById("direccionMacareno").value}
+🌾 *PRODUCTO:* Arroz Macareño La Carmita
 
-🌾 Producto: Arroz Macareño Premium
-📦 Presentación: ${etiquetaPresentacion}
-🔢 Cantidad: ${cantidad}
-💵 Precio unitario: $${precioUnitario}
-💰 Total a pagar: $${total}
+👤 *Cliente:* ${nombre}
+📞 *Teléfono:* ${telefono}
+📍 *Dirección:* ${direccion}
 
-📝 Observaciones:
-${document.getElementById("obsMacareno").value || "Sin observaciones"}`;
+📦 *Presentación:* ${etiquetaPresentacion}
+🔢 *Cantidad:* ${cantidad}
 
-    let url = "https://wa.me/" + numero + "?text=" + encodeURIComponent(mensaje);
+💵 *Precio unitario:* $${precioUnitario.toFixed(2)}
+💰 *TOTAL A PAGAR:* $${total.toFixed(2)}
+
+📝 *Observaciones:*
+${observaciones || "Sin observaciones"}
+
+━━━━━━━━━━━━━━━━━━
+🌾 *Arroz Macareño La Carmita*
+📲 Pedido realizado desde la página web
+━━━━━━━━━━━━━━━━━━`;
+
+
+    // ==========================================
+    // CREAR ENLACE DE WHATSAPP
+    // ==========================================
+
+    let url =
+        "https://wa.me/" +
+        numero +
+        "?text=" +
+        encodeURIComponent(mensaje);
+
+
+    // ==========================================
+    // ABRIR WHATSAPP
+    // ==========================================
 
     window.open(url, "_blank");
 
-    // Limpiar formulario
-    document.getElementById("formMacareno").reset();
+
+    // ==========================================
+    // LIMPIAR FORMULARIO
+    // ==========================================
+
+    document
+        .getElementById("formMacarenoCarmita")
+        .reset();
+
 
     return false;
+
 }
+
 </script>
+
+
 
 <div class="contenedor">
 
