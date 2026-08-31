@@ -431,6 +431,11 @@ ${observaciones || "Sin observaciones"}
 
 </script>
    
+
+<!-- ==========================================
+     ARROZ MACAREÑO LA CARMITA
+========================================== -->
+
 ```html
 <!-- ==========================================
      ARROZ MACAREÑO LA CARMITA
@@ -481,40 +486,34 @@ ${observaciones || "Sin observaciones"}
 
         <h2>Datos del Cliente</h2>
 
-        <form id="formMacarenoCarmita"
-              onsubmit="enviarWhatsappMacarenoCarmita(event); return false;">
+        <form id="formMac"
+              onsubmit="enviarWhatsappMac(event); return false;">
 
-            <label for="nombreMacarenoCarmita">
-                Nombre
-            </label>
+            <label>Nombre</label>
 
             <input
                 type="text"
-                id="nombreMacarenoCarmita"
+                id="nombreMac"
                 placeholder="Ingrese su nombre"
                 required
             >
 
 
-            <label for="telefonoMacarenoCarmita">
-                Teléfono
-            </label>
+            <label>Teléfono</label>
 
             <input
                 type="tel"
-                id="telefonoMacarenoCarmita"
+                id="telefonoMac"
                 placeholder="Ej: 0999999999"
                 required
             >
 
 
-            <label for="direccionMacarenoCarmita">
-                Dirección
-            </label>
+            <label>Dirección</label>
 
             <input
                 type="text"
-                id="direccionMacarenoCarmita"
+                id="direccionMac"
                 placeholder="Ingrese su dirección"
                 required
             >
@@ -522,14 +521,9 @@ ${observaciones || "Sin observaciones"}
 
             <!-- PRESENTACIÓN -->
 
-            <label for="presentacionMacarenoCarmita">
-                Presentación
-            </label>
+            <label>Presentación</label>
 
-            <select
-                id="presentacionMacarenoCarmita"
-                required
-            >
+            <select id="presentacionMac" required>
 
                 <option value="quintal">
                     Quintal 100 lb - $53
@@ -548,13 +542,11 @@ ${observaciones || "Sin observaciones"}
 
             <!-- CANTIDAD -->
 
-            <label for="cantidadMacarenoCarmita">
-                Cantidad
-            </label>
+            <label>Cantidad</label>
 
             <input
                 type="number"
-                id="cantidadMacarenoCarmita"
+                id="cantidadMac"
                 min="1"
                 value="1"
                 required
@@ -563,12 +555,10 @@ ${observaciones || "Sin observaciones"}
 
             <!-- OBSERVACIONES -->
 
-            <label for="obsMacarenoCarmita">
-                Observaciones
-            </label>
+            <label>Observaciones</label>
 
             <textarea
-                id="obsMacarenoCarmita"
+                id="obsMac"
                 rows="4"
                 placeholder="Ej: entregar en la mañana..."
             ></textarea>
@@ -593,61 +583,44 @@ ${observaciones || "Sin observaciones"}
 
 <script>
 
-function enviarWhatsappMacarenoCarmita(event) {
+function enviarWhatsappMac(event) {
 
-    // Evitar que la página se recargue
+    // Evita que el formulario recargue la página
     if (event) {
         event.preventDefault();
     }
 
 
     // ==========================================
-    // NÚMERO DE WHATSAPP
+    // WHATSAPP
     // ==========================================
 
     let numero = "593982727488";
 
 
     // ==========================================
-    // OBTENER DATOS DEL FORMULARIO
+    // DATOS DEL CLIENTE
     // ==========================================
 
     let nombre =
-        document.getElementById(
-            "nombreMacarenoCarmita"
-        ).value.trim();
-
+        document.getElementById("nombreMac").value.trim();
 
     let telefono =
-        document.getElementById(
-            "telefonoMacarenoCarmita"
-        ).value.trim();
-
+        document.getElementById("telefonoMac").value.trim();
 
     let direccion =
-        document.getElementById(
-            "direccionMacarenoCarmita"
-        ).value.trim();
-
+        document.getElementById("direccionMac").value.trim();
 
     let presentacion =
-        document.getElementById(
-            "presentacionMacarenoCarmita"
-        ).value;
-
+        document.getElementById("presentacionMac").value;
 
     let cantidad =
         parseInt(
-            document.getElementById(
-                "cantidadMacarenoCarmita"
-            ).value
+            document.getElementById("cantidadMac").value
         ) || 0;
 
-
     let observaciones =
-        document.getElementById(
-            "obsMacarenoCarmita"
-        ).value.trim();
+        document.getElementById("obsMac").value.trim();
 
 
     // ==========================================
@@ -656,17 +629,17 @@ function enviarWhatsappMacarenoCarmita(event) {
 
     let precios = {
 
-        "quintal": {
+        quintal: {
             precio: 53,
             etiqueta: "Quintal [100 lb]"
         },
 
-        "medio_quintal": {
+        medio_quintal: {
             precio: 27,
             etiqueta: "Medio quintal [50 lb]"
         },
 
-        "arroba": {
+        arroba: {
             precio: 14,
             etiqueta: "Arroba [25 lb]"
         }
@@ -675,39 +648,33 @@ function enviarWhatsappMacarenoCarmita(event) {
 
 
     // ==========================================
-    // OBTENER PRECIO
+    // SELECCIÓN
     // ==========================================
 
-    let seleccion =
-        precios[presentacion];
+    let seleccion = precios[presentacion];
 
 
     if (!seleccion) {
 
-        alert("Por favor seleccione una presentación.");
+        alert("Seleccione una presentación.");
 
         return false;
     }
 
 
-    let precioUnitario =
-        seleccion.precio;
+    // ==========================================
+    // PRECIO Y TOTAL
+    // ==========================================
 
+    let precioUnitario = seleccion.precio;
 
-    let etiquetaPresentacion =
-        seleccion.etiqueta;
+    let etiquetaPresentacion = seleccion.etiqueta;
+
+    let total = cantidad * precioUnitario;
 
 
     // ==========================================
-    // CALCULAR TOTAL
-    // ==========================================
-
-    let total =
-        cantidad * precioUnitario;
-
-
-    // ==========================================
-    // CREAR MENSAJE
+    // MENSAJE WHATSAPP
     // ==========================================
 
     let mensaje =
@@ -729,13 +696,13 @@ function enviarWhatsappMacarenoCarmita(event) {
 ${observaciones || "Sin observaciones"}
 
 ━━━━━━━━━━━━━━━━━━
-🌾 *Arroz Macareño La Carmita*
-📲 Pedido realizado desde la página web
+🌾 *ARROZ MACAREÑO LA CARMITA*
+📲 Pedido desde la página web
 ━━━━━━━━━━━━━━━━━━`;
 
 
     // ==========================================
-    // CREAR ENLACE DE WHATSAPP
+    // ENLACE WHATSAPP
     // ==========================================
 
     let url =
@@ -756,9 +723,7 @@ ${observaciones || "Sin observaciones"}
     // LIMPIAR FORMULARIO
     // ==========================================
 
-    document
-        .getElementById("formMacarenoCarmita")
-        .reset();
+    document.getElementById("formMac").reset();
 
 
     return false;
@@ -766,7 +731,7 @@ ${observaciones || "Sin observaciones"}
 }
 
 </script>
-
+```
 
 
 <div class="contenedor">
